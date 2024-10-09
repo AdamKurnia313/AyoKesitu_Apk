@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'Home_Screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -21,7 +22,7 @@ class LoginScreen extends StatelessWidget {
           Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('lib/image.png'), // Ganti dengan gambar Anda
+                image: AssetImage('assets/img/image.png'), // Ganti dengan gambar Anda
                 fit: BoxFit.cover,
               ),
             ),
@@ -32,7 +33,7 @@ class LoginScreen extends StatelessWidget {
             children: <Widget>[
               // Logo Image
               Image.asset(
-                'lib/logo.png', // Path ke logo Anda
+                'assets/img/logo.png', // Path ke logo Anda
                 width: 150, // Anda dapat sesuaikan ukuran logo di sini
                 height: 150,
               ),
@@ -55,10 +56,11 @@ class LoginScreen extends StatelessWidget {
                     children: <Widget>[
                       ElevatedButton(
                         onPressed: () {
-                          // Tambahkan aksi ketika tombol "Sign In" dipencet
-                          print("Sign In button pressed");
-                          // Contoh navigasi ke halaman lain:
-                          // Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => HomeScreen()),
+                          );
                         },
                         child: Text('Sign In'),
                         style: ElevatedButton.styleFrom(
