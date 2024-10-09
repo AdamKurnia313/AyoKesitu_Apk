@@ -19,41 +19,48 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
-  # Adds the Cupertino Icons font to your application. (iOS style icons)
-  cupertino_icons: ^1.0.8
-
+  image_picker: ^0.8.5+3
+  provider: ^6.0.0
+  flutter_svg: ^1.0.0
+  cupertino_icons: ^1.0.2
+ 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
-  # The "flutter_lints" package contains a set of recommended lints to
-  # encourage good coding practices.
   flutter_lints: ^4.0.0
 
 # Flutter section - contains important settings for Flutter-specific functionalities.
 flutter:
-  uses-material-design: true
 
-  # Assets section for adding images, icons, or any other static files.
+
   assets:
-    - lib/image.png
-    - lib/logo.png
-      # Pastikan file gambar ini ada di folder lib/
+    - assets/img/image.png
+    - assets/img/logo.png
+    - assets/img/Ratenggaro-village-in-Sumba-Explore-Sumba-island-villages-in-Indonesia-10.jpg
+    - assets/img/bali.png
+    - assets/img/lombok.jpg
+    - assets/img/91.png
+    - assets/img/gili-islands-digital-nomads.png
+    - assets/img/Lombok-to-Komodo-Island-4-Days-3-Night-Amazing-Trip.png
+    - assets/img/icons profile.svg
+    - assets/img/Chevron right.svg
+    - assets/img/Check circle.svg
+    - assets/img/Settings.svg
+    - assets/img/Credit card.svg
+    - assets/img/profile.svg
+    - assets/img/Search.svg
+    - assets/img/Home.svg
+    - assets/img/User.svg
+    - assets/img/Heart.svg
+    - assets/img/Calendar.svg
+    - assets/img/favorite.svg
+    - assets/img/star.svg
+    - assets/img/Map Pin.png
 
-  # Fonts section for adding custom fonts.
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
-  #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
-  #         weight: 700
-
-# The following line ensures that the Material Icons font is
-# included with your application, so that you can use the icons in
-# the material Icons class.
+  fonts:
+    - family: WorkSans
+      fonts:
+        - asset: assets/font/WorkSans-Italic-VariableFont_wght.ttf
+        - asset: assets/font/WorkSans-VariableFont_wght.ttf
+        - asset: assets/font/Conamore Light.otf
+  uses-material-design: true
