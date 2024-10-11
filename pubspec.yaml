@@ -23,6 +23,7 @@ dependencies:
   provider: ^6.0.0
   flutter_svg: ^1.0.0
   cupertino_icons: ^1.0.2
+  get: ^4.6.6
  
 dev_dependencies:
   flutter_test:
@@ -35,6 +36,7 @@ flutter:
 
   assets:
     - assets/img/image.png
+    - assets/img/image_pemesanan.png
     - assets/img/logo.png
     - assets/img/Ratenggaro-village-in-Sumba-Explore-Sumba-island-villages-in-Indonesia-10.jpg
     - assets/img/bali.png

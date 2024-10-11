@@ -1,12 +1,16 @@
 import 'dart:io'; // untuk File
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:project_flutter/presentation/pages/profil/profile.dart';
+import 'package:project_flutter/presentation/pages/homeprofile/profile/profile.dart';
+import 'package:project_flutter/presentation/pages/pemesanan/pemesanan_page.dart';
 import 'package:provider/provider.dart'; // Import provider
+import 'package:get/get.dart'; //
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
@@ -31,6 +35,8 @@ class ProfileImage with ChangeNotifier {
 }
 
 class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
@@ -56,7 +62,6 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       body: _widgetOptions.elementAt(_selectedIndex),
       bottomNavigationBar: BottomNavigationBar(
-        
         items: [
           BottomNavigationBarItem(
             icon: SvgPicture.asset(
@@ -95,14 +100,16 @@ class _HomeScreenState extends State<HomeScreen> {
         selectedItemColor: Colors.black,
         unselectedItemColor: Colors.grey,
         onTap: _onItemTapped,
-        showSelectedLabels: false, 
-        showUnselectedLabels: false, 
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
       ),
     );
   }
 }
 
 class HomeScreenBody extends StatelessWidget {
+  const HomeScreenBody({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -120,12 +127,10 @@ class HomeScreenBody extends StatelessWidget {
           SizedBox(height: 10),
           _buildHorizontalList(),
           SizedBox(height: 10),
-          _buildSectionTitle("Popular Activities","see All"),
+          _buildSectionTitle("Popular Activities", "see All"),
           _buildPopularActivities(),
         ],
       ),
-              
-
     );
   }
 
@@ -231,7 +236,6 @@ class HomeScreenBody extends StatelessWidget {
 
   Widget _buildSectionTitle(String title, String actionText) {
     return Row(
-
       children: [
         Text(
           title,
@@ -280,101 +284,108 @@ class HomeScreenBody extends StatelessWidget {
       ),
     );
   }
-Widget _buildRecommendationCard(Map<String, String> recommendation) {
-  return Container(
-    width: 210,
-    height: 249,
-    margin: EdgeInsets.only(right: 16),
-    padding: EdgeInsets.all(12),
-    decoration: BoxDecoration(
-      borderRadius: BorderRadius.circular(12),
-      color: Color(0xfeD9D9D9),
-    ),
-    child: Stack(
-      children: [
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Expanded(
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(12),
-                child: Image.asset(
-                  recommendation["image"]!,
-                  width: 186,
-                  height: 132,
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-            SizedBox(height: 8),
-            Text(
-              recommendation["title"]!,
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-            ),
-            SizedBox(height: 4),
-            Row(
-              children: [
-                Image.asset('assets/img/Map Pin.png'),
-                SizedBox(width: 4),
-                Text(
-                  recommendation["location"]!,
-                  style: TextStyle(
-                      color: const Color.fromARGB(255, 0, 0, 0),
-                      fontFamily: 'Conamore',
-                      fontWeight: FontWeight.normal),
-                ),
-              ],
-            ),
-            SizedBox(height: 4),
-            Row(
-              children: [
-                SvgPicture.asset('assets/img/star.svg'),
-                Text(
-                  recommendation['rating']!,
-                  style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
-                ),
-              ],
-            ),
-          ],
+
+  Widget _buildRecommendationCard(Map<String, String> recommendation) {
+    return GestureDetector(
+      onTap: () {
+        Get.to(const PemesananPage(), arguments: recommendation);
+      },
+      child: Container(
+        width: 210,
+        height: 249,
+        margin: EdgeInsets.only(right: 16),
+        padding: EdgeInsets.all(12),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(12),
+          color: Color(0xfeD9D9D9),
         ),
-        // Lingkaran dengan ikon di atasnya
-        Positioned(
-          top: 10, // Jarak dari atas
-          right: 10, // Jarak dari kanan
-          child: Stack(
-            alignment: Alignment.center, // Agar ikon berada di tengah lingkaran
-            children: [
-              // Lingkaran
-              Container(
-                width: 30,
-                height: 30,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  shape: BoxShape.circle,
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.5),
-                      spreadRadius: 0,
-                      blurRadius: 4,
-                      offset: Offset(0, 4),
+        child: Stack(
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(12),
+                    child: Image.asset(
+                      recommendation["image"]!,
+                      width: 186,
+                      height: 132,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+                SizedBox(height: 8),
+                Text(
+                  recommendation["title"]!,
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                ),
+                SizedBox(height: 4),
+                Row(
+                  children: [
+                    Image.asset('assets/img/Map Pin.png'),
+                    SizedBox(width: 4),
+                    Text(
+                      recommendation["location"]!,
+                      style: TextStyle(
+                          color: const Color.fromARGB(255, 0, 0, 0),
+                          fontFamily: 'Conamore',
+                          fontWeight: FontWeight.normal),
                     ),
                   ],
                 ),
-              ),
-              // Ikon di atas lingkaran
-               SvgPicture.asset(
-                      'assets/img/favorite.svg',
-                      width: 24,
-                      height: 24,
+                SizedBox(height: 4),
+                Row(
+                  children: [
+                    SvgPicture.asset('assets/img/star.svg'),
+                    Text(
+                      recommendation['rating']!,
+                      style:
+                          TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
                     ),
-            ],
-          ),
+                  ],
+                ),
+              ],
+            ),
+            // Lingkaran dengan ikon di atasnya
+            Positioned(
+              top: 10, // Jarak dari atas
+              right: 10, // Jarak dari kanan
+              child: Stack(
+                alignment:
+                    Alignment.center, // Agar ikon berada di tengah lingkaran
+                children: [
+                  // Lingkaran
+                  Container(
+                    width: 30,
+                    height: 30,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      shape: BoxShape.circle,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.5),
+                          spreadRadius: 0,
+                          blurRadius: 4,
+                          offset: Offset(0, 4),
+                        ),
+                      ],
+                    ),
+                  ),
+                  // Ikon di atas lingkaran
+                  SvgPicture.asset(
+                    'assets/img/favorite.svg',
+                    width: 24,
+                    height: 24,
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
-      ],
-    ),
-  );
-}
-
+      ),
+    );
+  }
 
   Widget _buildPopularActivities() {
     final popularActivities = [
