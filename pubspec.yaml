@@ -58,6 +58,7 @@ flutter:
     - assets/img/favorite.svg
     - assets/img/star.svg
     - assets/img/Map Pin.png
+    - assets/img/onboarding.png
 
   fonts:
     - family: WorkSans
