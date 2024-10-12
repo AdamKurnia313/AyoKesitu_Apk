@@ -360,7 +360,7 @@ class HomeScreenBody extends StatelessWidget {
                     width: 30,
                     height: 30,
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: const Color(0xF3FCFF),
                       shape: BoxShape.circle,
                       boxShadow: [
                         BoxShadow(
