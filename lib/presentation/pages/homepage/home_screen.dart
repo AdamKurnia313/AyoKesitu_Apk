@@ -1,18 +1,18 @@
 import 'dart:io'; // untuk File
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:project_flutter/presentation/pages/homeprofile/profile/profile.dart';
 import 'package:project_flutter/presentation/pages/pemesanan/pemesanan_page.dart';
 import 'package:provider/provider.dart'; // Import provider
 import 'package:get/get.dart';
 
+import '../profiles/profile/profile.dart';
 import 'popular_card.dart';
 import 'recomendation_card.dart'; //
 
-void main() => runApp(MyApp());
+void main() => runApp(AyoKesitu());
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class AyoKesitu extends StatelessWidget {
+  const AyoKesitu({super.key});
 
   @override
   Widget build(BuildContext context) {
