@@ -57,151 +57,116 @@ class _HomeScreenState extends State<HomeScreen> {
       _selectedIndex = index;
     });
   }
-
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Stack(
-          children: [
-            _widgetOptions.elementAt(_selectedIndex),
-            Positioned(
-              bottom: 0,
-              left: (MediaQuery.of(context).size.width - 372) / 2,
-              
-              child: Container(
-                width: 372,
-                height: 70, // Sesuaikan tinggi berdasarkan ukuran layar
-                margin: EdgeInsets.only(bottom: 30),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius:
-                      BorderRadius.circular(10), 
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black12,
-                      blurRadius: 10,
-                      offset: Offset(0, -5),
+Widget build(BuildContext context) {
+  return Scaffold(
+    body: Stack(
+      children: [
+        // Konten utama
+        _widgetOptions[_selectedIndex],
+        // Bottom Navigation Bar
+        Positioned(
+          bottom: 20, // Mengatur jarak dari bawah layar
+          left: 0,
+          right: 0,
+          child: SafeArea(
+            child: Container(
+              width: 372,
+              height: 60,
+              decoration: BoxDecoration(
+                color: Colors.greenAccent,
+                borderRadius: BorderRadius.circular(30.0),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black26,
+                    blurRadius: 10,
+                    offset: Offset(0, -4),
+                  ),
+                ],
+              ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.vertical(top: Radius.circular(30.0)),
+                child: BottomNavigationBar(
+                  type: BottomNavigationBarType.fixed,
+                  backgroundColor: Colors.transparent,
+                  elevation: 0,
+                  currentIndex: _selectedIndex,
+                  onTap: _onItemTapped,
+                  items: [
+                    BottomNavigationBarItem(
+                      icon: Container(
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          color: _selectedIndex == 0 ? Color(0xfe00A550) : Colors.transparent,
+                          shape: BoxShape.circle,
+                        ),
+                        child: SvgPicture.asset(
+                          'assets/img/Home.svg',
+                          color: _selectedIndex == 0 ? const Color.fromARGB(255, 0, 0, 0) : Colors.grey,
+                          height: 24,
+                        ),
+                      ),
+                      label: '',
+                    ),
+                    BottomNavigationBarItem(
+                      icon: Container(
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          color: _selectedIndex == 1 ? Color(0xfe00A550) : Colors.transparent,
+                          shape: BoxShape.circle,
+                        ),
+                        child: SvgPicture.asset(
+                          'assets/img/Heart.svg',
+                          color: _selectedIndex == 1 ? const Color.fromARGB(255, 0, 0, 0) : Colors.grey,
+                          height: 24,
+                        ),
+                      ),
+                      label: '',
+                    ),
+                    BottomNavigationBarItem(
+                      icon: Container(
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          color: _selectedIndex == 2 ? Color(0xfe00A550) : Colors.transparent,
+                          shape: BoxShape.circle,
+                        ),
+                        child: SvgPicture.asset(
+                          'assets/img/Send.svg',
+                          color: _selectedIndex == 2 ? const Color.fromARGB(255, 0, 0, 0) : Colors.grey,
+                          height: 24,
+                        ),
+                      ),
+                      label: '',
+                    ),
+                    BottomNavigationBarItem(
+                      icon: Container(
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          color: _selectedIndex == 3 ? Color(0xfe00A550) : Colors.transparent,
+                          shape: BoxShape.circle,
+                        ),
+                        child: SvgPicture.asset(
+                          'assets/img/User.svg',
+                          color: _selectedIndex == 3 ? const Color.fromARGB(255, 0, 0, 0) : Colors.grey,
+                          height: 24,
+                        ),
+                      ),
+                      label: '',
                     ),
                   ],
-                ),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(
-                      30), 
-                  child: BottomNavigationBar(
-                    items: [
-                      BottomNavigationBarItem(
-                        icon: Container(
-                          width: 35,
-                          height: 35,
-                          decoration: BoxDecoration(
-                            color: _selectedIndex == 0
-                                ? Color(0xfe00A550)
-                                : Colors.transparent, 
-                            shape: BoxShape.circle,
-                          ),
-                          child: Center(
-                            child: SvgPicture.asset(
-                              'assets/img/Home.svg',
-                              color: _selectedIndex == 0
-                                  ? Colors.black
-                                  : Colors
-                                      .grey, // Warna ikon saat dipilih dan tidak dipilih
-                              width: 32,
-                            ),
-                          ),
-                        ),
-                        label: '', // Tidak ada label
-                      ),
-                      BottomNavigationBarItem(
-                        icon: Container(
-                          width: 35,
-                          height: 35,
-                          decoration: BoxDecoration(
-                            color: _selectedIndex == 1
-                                ? Color(0xfe00A550)
-                                : Colors.transparent, // Warna saat dipilih
-                            shape: BoxShape.circle,
-                          ),
-                          child: Center(
-                            child: SvgPicture.asset(
-                              'assets/img/Heart.svg',
-                              color: _selectedIndex == 1
-                                  ? Colors.black
-                                  : Colors
-                                      .grey, // Warna ikon saat dipilih dan tidak dipilih
-                              width: 32,
-                            ),
-                          ),
-                        ),
-                        label: '', // Tidak ada label
-                      ),
-                      BottomNavigationBarItem(
-                        icon: Container(
-                            width: 35,
-                          height: 35,
-                          decoration: BoxDecoration(
-                            color: _selectedIndex == 2
-                                ? Color(0xfe00A550)
-                                : Colors.transparent, // Warna saat dipilih
-                            shape: BoxShape.circle,
-                          ),
-                          child: Center(
-                            child: SvgPicture.asset(
-                              'assets/img/Send.svg',
-                              color: _selectedIndex == 2
-                                  ? Colors.black
-                                  : Colors.grey,
-                              width: 32,
-                            ),
-                          ),
-                        ),
-                        label: '', // Tidak ada label
-                      ),
-                      BottomNavigationBarItem(
-                        icon: Container(
-                            width: 35,
-                          height: 35,
-                          decoration: BoxDecoration(
-                            color: _selectedIndex == 3
-                                ? Color(0xfe00A550)
-                                : Colors.transparent, // Warna saat dipilih
-                            shape: BoxShape.circle,
-                          ),
-                          child: Center(
-                            child: SvgPicture.asset(
-                              'assets/img/User.svg',
-                              color: _selectedIndex == 3
-                                  ? Colors.black
-                                  : Colors.grey,
-                              width: 32,
-                            ),
-                          ),
-                        ),
-                        label: '', // Tidak ada label
-                      ),
-                    ],
-                    currentIndex: _selectedIndex,
-                    selectedItemColor: const Color.fromARGB(
-                        255, 0, 0, 0), // Warna ikon saat dipilih
-                    unselectedItemColor:
-                        Colors.grey, // Warna ikon tidak dipilih
-                    onTap: _onItemTapped,
-                    showSelectedLabels: false, // Sembunyikan label terpilih
-                    showUnselectedLabels:
-                        false, // Sembunyikan label tidak terpilih
-                    backgroundColor: Colors
-                        .transparent, // Warna latar belakang navigation bar
-                    elevation: 0,
-                  ),
+                  selectedItemColor: const Color.fromARGB(255, 0, 0, 0),
+                  unselectedItemColor: Colors.grey,
+                  showSelectedLabels: false,
+                  showUnselectedLabels: false,
                 ),
               ),
             ),
-          ],
+          ),
         ),
-      ),
-    );
-  }
+      ],
+    ),
+  );
+}
 }
 
 class HomeScreenBody extends StatelessWidget {
@@ -286,6 +251,59 @@ class HomeScreenBody extends StatelessWidget {
               color: Color(0xfe00A550),
             ),
             borderRadius: BorderRadius.circular(15),
+          
+          ),
+          child: Row(
+            children: [
+              Image.asset("assets/img/beach.png")
+              ,Text("Beach",style: TextStyle(
+                color: Colors.white,
+                fontSize: 12
+              ),)
+            ],
+          ),
+        ),
+        
+        Spacer(),
+        Container(
+          width: 80,
+          height: 35,
+          decoration: BoxDecoration(
+            color: Color(0xfe00A550),
+            border: Border.all(
+              color: Color(0xfe00A550),
+            ),
+            borderRadius: BorderRadius.circular(15),
+          ),
+          child: Row(
+            children: [
+              Image.asset("assets/img/forest.png")
+              ,Text("Forest",style: TextStyle(
+                color: Colors.white,
+                fontSize: 12
+              ),)
+            ],
+          ),
+        ),
+        Spacer(),
+        Container(
+          width: 95,
+          height: 35,
+          decoration: BoxDecoration(
+            color: Color(0xfe00A550),
+            border: Border.all(
+              color: Color(0xfe00A550),
+            ),
+            borderRadius: BorderRadius.circular(15),
+          ),
+          child: Row(
+            children: [
+              Image.asset("assets/img/mountain.png")
+              ,Text("Mountain",style: TextStyle(
+                color: Colors.white,
+                fontSize: 12
+              ),)
+            ],
           ),
         ),
         Spacer(),
@@ -299,29 +317,14 @@ class HomeScreenBody extends StatelessWidget {
             ),
             borderRadius: BorderRadius.circular(15),
           ),
-        ),
-        Spacer(),
-        Container(
-          width: 80,
-          height: 35,
-          decoration: BoxDecoration(
-            color: Color(0xfe00A550),
-            border: Border.all(
-              color: Color(0xfe00A550),
-            ),
-            borderRadius: BorderRadius.circular(15),
-          ),
-        ),
-        Spacer(),
-        Container(
-          width: 80,
-          height: 35,
-          decoration: BoxDecoration(
-            color: Color(0xfe00A550),
-            border: Border.all(
-              color: Color(0xfe00A550),
-            ),
-            borderRadius: BorderRadius.circular(15),
+          child: Row(
+            children: [
+              Image.asset("assets/img/ride.png")
+              ,Text("Ride",style: TextStyle(
+                color: Colors.white,
+                fontSize: 12
+              ),)
+            ],
           ),
         )
       ],
@@ -383,16 +386,22 @@ class HomeScreenBody extends StatelessWidget {
   }
 
    Widget _buildRecommendationCard(Map<String, String> recommendation) {
-    // Variabel untuk menyimpan status favorit
-    bool isFavorite = false;
-
-    return GestureDetector(
-      onTap: () {
-        // Ubah status favorit saat diklik
-        isFavorite = !isFavorite;
-        // Panggil setState agar UI diperbarui
-        // Jika menggunakan StatefulWidget, kamu bisa panggil setState di sini
-      },
+ 
+  return GestureDetector(
+   onTap: () {
+  print("Clicked on: ${recommendation["title"]}");
+  switch (recommendation["title"]) {
+    case "Sumba Island":
+      Get.to(() => PemesananPage());
+      break;
+    case "Bali Island":
+      // Navigasi ke halaman Bali
+      break;
+    case "Lombok Island":
+      // Navigasi ke halaman Lombok
+      break;
+  }
+},
       child: Container(
         margin: EdgeInsets.only(right: 16),
         width: 207,
@@ -496,12 +505,7 @@ class HomeScreenBody extends StatelessWidget {
                     ),
                   ),
                   // Ikon favorit
-                  SvgPicture.asset(
-                    'assets/img/favorite.svg',
-                    width: 24,
-                    height: 24,
-                    color: isFavorite ? Colors.red : Colors.black, // Mengubah warna berdasarkan status favorit
-                  ),
+                  
                 ],
               ),
             ),
