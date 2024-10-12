@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class MyApp extends StatelessWidget {
+import '../../../login_page.dart';
+import '../../../main.dart';
+
+class AyoKesitu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: BromoScreen(),
+      home: onboardings(),
     );
   }
 }
 
-class BromoScreen extends StatelessWidget {
+class onboardings extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,7 +63,6 @@ class BromoScreen extends StatelessWidget {
                 // Continue Button
                 ElevatedButton(
                   onPressed: () {
-                    // Handle the button press action
                   },
                   style: ElevatedButton.styleFrom(
                     padding: EdgeInsets.symmetric(horizontal: 50, vertical: 15),
