@@ -6,6 +6,8 @@ import 'dart:io';
 void main() => runApp(AyoKesitu());
 
 class AyoKesitu extends StatelessWidget {
+  const AyoKesitu({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -15,6 +17,8 @@ class AyoKesitu extends StatelessWidget {
 }
 
 class ProfilePage extends StatefulWidget {
+  const ProfilePage({super.key});
+
   @override
   _ProfilePageState createState() => _ProfilePageState();
 }
@@ -35,11 +39,11 @@ class _ProfilePageState extends State<ProfilePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SizedBox(height: 50),
-            Text(
+            const SizedBox(height: 50),
+            const Text(
               "Your Profile",
               style: TextStyle(
-                color: const Color.fromARGB(255, 0, 0, 0),
+                color: Color.fromARGB(255, 0, 0, 0),
                 fontFamily: 'WorkSans',
                 fontSize: 40,
                 fontWeight: FontWeight.bold,
@@ -62,7 +66,7 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
             Text(
               name,
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.black,
                 fontFamily: 'WorkSans',
                 fontWeight: FontWeight.bold,
@@ -71,14 +75,14 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
             Text(
               email,
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.black,
                 fontFamily: 'WorkSans',
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             GestureDetector(
               onTap: () async {
                 // Navigasi ke halaman Edit Profile dan menunggu hasil
@@ -125,8 +129,8 @@ class _ProfilePageState extends State<ProfilePage> {
                         height: 40,
                       ),
                     ),
-                    SizedBox(width: 20),
-                    Text(
+                    const SizedBox(width: 20),
+                    const Text(
                       'Profile',
                       style: TextStyle(
                           color: Colors.black,
@@ -134,7 +138,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           fontSize: 16,
                           fontWeight: FontWeight.bold),
                     ),
-                    Spacer(),
+                    const Spacer(),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: SvgPicture.asset(
@@ -147,7 +151,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Container(
               width: 295,
               height: 80,
@@ -167,8 +171,8 @@ class _ProfilePageState extends State<ProfilePage> {
                       height: 40,
                     ),
                   ),
-                  SizedBox(width: 20),
-                  Text(
+                  const SizedBox(width: 20),
+                  const Text(
                     'Payment Method',
                     style: TextStyle(
                         color: Colors.black,
@@ -176,7 +180,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         fontSize: 16,
                         fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 20,
                   ),
                   Padding(
@@ -190,7 +194,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Container(
@@ -212,8 +216,8 @@ class _ProfilePageState extends State<ProfilePage> {
                       height: 40,
                     ),
                   ),
-                  SizedBox(width: 20),
-                  Text(
+                  const SizedBox(width: 20),
+                  const Text(
                     'Your Order',
                     style: TextStyle(
                         color: Colors.black,
@@ -221,7 +225,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         fontSize: 16,
                         fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 65,
                   ),
                   Padding(
@@ -235,7 +239,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Container(
@@ -256,8 +260,8 @@ class _ProfilePageState extends State<ProfilePage> {
                       height: 40,
                     ),
                   ),
-                  SizedBox(width: 20),
-                  Text(
+                  const SizedBox(width: 20),
+                  const Text(
                     'Setting',
                     style: TextStyle(
                         color: Colors.black,
@@ -265,7 +269,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         fontSize: 16,
                         fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 95,
                   ),
                   Padding(
@@ -291,7 +295,7 @@ class EditProfilePage extends StatefulWidget {
   final String phoneNumber;
   final File? image; // Tambahkan parameter untuk gambar
 
-  EditProfilePage({
+  const EditProfilePage({super.key, 
     required this.firstName,
     required this.lastName,
     required this.location,
@@ -347,11 +351,11 @@ class _EditProfilePageState extends State<EditProfilePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SizedBox(height: 50),
-            Text(
+            const SizedBox(height: 50),
+            const Text(
               "Edit Profile",
               style: TextStyle(
-                color: const Color.fromARGB(255, 0, 0, 0),
+                color: Color.fromARGB(255, 0, 0, 0),
                 fontFamily: 'WorkSans',
                 fontSize: 40,
                 fontWeight: FontWeight.bold,
@@ -377,17 +381,17 @@ class _EditProfilePageState extends State<EditProfilePage> {
               children: [
                 Text(
                   widget.firstName,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.black,
                     fontFamily: 'WorkSans',
                     fontWeight: FontWeight.bold,
                     fontSize: 20,
                   ),
                 ),
-                SizedBox(width: 10),
+                const SizedBox(width: 10),
                 Text(
                   widget.lastName,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.black,
                     fontFamily: 'WorkSans',
                     fontWeight: FontWeight.bold,
@@ -398,27 +402,27 @@ class _EditProfilePageState extends State<EditProfilePage> {
             ),
             GestureDetector(
               onTap: _pickImage, // Panggil fungsi pemilih gambar
-              child: Text(
+              child: const Text(
                 "Change Your Photo Profile",
                 style: TextStyle(
-                  color: const Color.fromARGB(255, 0, 150, 231),
+                  color: Color.fromARGB(255, 0, 150, 231),
                   fontFamily: 'WorkSans',
                   fontSize: 10,
                 ),
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             buildTextField("First Name", firstNameController),
             buildTextField("Last Name", lastNameController),
             buildTextField("Location", locationController),
             buildTextField("Phone Number", phoneNumberController),
-            SizedBox(height: 20),
-            Container(
+            const SizedBox(height: 20),
+            SizedBox(
               width: 200,
               height: 43,
               child: TextButton(
                 style: TextButton.styleFrom(
-                  backgroundColor: Color.fromARGB(255, 15, 133, 29),
+                  backgroundColor: const Color.fromARGB(255, 15, 133, 29),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(7),
                   ),
@@ -433,7 +437,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     'image': _image // Kirim gambar profil baru
                   });
                 },
-                child: Text(
+                child: const Text(
                   "Save Changes",
                   style: TextStyle(
                       color: Color(0xffffffff),
@@ -456,13 +460,13 @@ class _EditProfilePageState extends State<EditProfilePage> {
         controller: controller,
         decoration: InputDecoration(
           labelText: labelText,
-          labelStyle: TextStyle(
+          labelStyle: const TextStyle(
             fontSize: 15,
             color: Colors.black,
           ),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
-            borderSide: BorderSide(color: Colors.black),
+            borderSide: const BorderSide(color: Colors.black),
           ),
         ),
       ),

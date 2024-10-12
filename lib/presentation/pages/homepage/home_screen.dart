@@ -9,7 +9,7 @@ import '../profiles/profile/profile.dart';
 import 'popular_card.dart';
 import 'recomendation_card.dart'; //
 
-void main() => runApp(AyoKesitu());
+void main() => runApp(const AyoKesitu());
 
 class AyoKesitu extends StatelessWidget {
   const AyoKesitu({super.key});
@@ -38,6 +38,8 @@ class ProfileImage with ChangeNotifier {
 }
 
 class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
@@ -45,10 +47,10 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
 
-  static List<Widget> _widgetOptions = <Widget>[
+  static final List<Widget> _widgetOptions = <Widget>[
     HomeScreenBody(),
-    Placeholder(),
-    Placeholder(),
+    const Placeholder(),
+    const Placeholder(),
     ProfilePage(),
   ];
 
@@ -68,16 +70,14 @@ class _HomeScreenState extends State<HomeScreen> {
             Positioned(
               bottom: 0,
               left: (MediaQuery.of(context).size.width - 372) / 2,
-              
               child: Container(
                 width: 372,
                 height: 70, // Sesuaikan tinggi berdasarkan ukuran layar
-                margin: EdgeInsets.only(bottom: 30),
+                margin: const EdgeInsets.only(bottom: 30),
                 decoration: BoxDecoration(
                   color: Colors.white,
-                  borderRadius:
-                      BorderRadius.circular(10), 
-                  boxShadow: [
+                  borderRadius: BorderRadius.circular(10),
+                  boxShadow: const [
                     BoxShadow(
                       color: Colors.black12,
                       blurRadius: 10,
@@ -86,8 +86,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                 ),
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(
-                      30), 
+                  borderRadius: BorderRadius.circular(30),
                   child: BottomNavigationBar(
                     items: [
                       BottomNavigationBarItem(
@@ -96,8 +95,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           height: 35,
                           decoration: BoxDecoration(
                             color: _selectedIndex == 0
-                                ? Color(0xfe00A550)
-                                : Colors.transparent, 
+                                ? const Color(0xfe00A550)
+                                : Colors.transparent,
                             shape: BoxShape.circle,
                           ),
                           child: Center(
@@ -119,7 +118,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           height: 35,
                           decoration: BoxDecoration(
                             color: _selectedIndex == 1
-                                ? Color(0xfe00A550)
+                                ? const Color(0xfe00A550)
                                 : Colors.transparent, // Warna saat dipilih
                             shape: BoxShape.circle,
                           ),
@@ -138,11 +137,11 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       BottomNavigationBarItem(
                         icon: Container(
-                            width: 35,
+                          width: 35,
                           height: 35,
                           decoration: BoxDecoration(
                             color: _selectedIndex == 2
-                                ? Color(0xfe00A550)
+                                ? const Color(0xfe00A550)
                                 : Colors.transparent, // Warna saat dipilih
                             shape: BoxShape.circle,
                           ),
@@ -160,11 +159,11 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       BottomNavigationBarItem(
                         icon: Container(
-                            width: 35,
+                          width: 35,
                           height: 35,
                           decoration: BoxDecoration(
                             color: _selectedIndex == 3
-                                ? Color(0xfe00A550)
+                                ? const Color(0xfe00A550)
                                 : Colors.transparent, // Warna saat dipilih
                             shape: BoxShape.circle,
                           ),
@@ -205,23 +204,23 @@ class _HomeScreenState extends State<HomeScreen> {
 }
 
 class HomeScreenBody extends StatelessWidget {
+  const HomeScreenBody({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         children: [
-          SizedBox(
+          const SizedBox(
             height: 30,
           ),
           _buildSearch(),
-          SizedBox(height: 10),
-          _buildRecomendationSearch(),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           _buildSectionTitle("Recommended", "Explore"),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           _buildHorizontalList(),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           _buildSectionTitle("Popular Activities", "see All"),
           _buildPopularActivities(),
         ],
@@ -234,7 +233,7 @@ class HomeScreenBody extends StatelessWidget {
       child: Center(
         child: Row(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 50,
             ),
             Container(
@@ -254,7 +253,7 @@ class HomeScreenBody extends StatelessWidget {
                   ),
                   Expanded(
                     child: TextField(
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         hintText: "",
                         border: InputBorder.none, // Hilangkan border default
                         contentPadding: EdgeInsets.symmetric(vertical: 8),
@@ -274,72 +273,18 @@ class HomeScreenBody extends StatelessWidget {
     );
   }
 
-  Widget _buildRecomendationSearch() {
-    return Row(
-      children: [
-        Container(
-          width: 80,
-          height: 35,
-          decoration: BoxDecoration(
-            color: Color(0xfe00A550),
-            border: Border.all(
-              color: Color(0xfe00A550),
-            ),
-            borderRadius: BorderRadius.circular(15),
-          ),
-        ),
-        Spacer(),
-        Container(
-          width: 80,
-          height: 35,
-          decoration: BoxDecoration(
-            color: Color(0xfe00A550),
-            border: Border.all(
-              color: Color(0xfe00A550),
-            ),
-            borderRadius: BorderRadius.circular(15),
-          ),
-        ),
-        Spacer(),
-        Container(
-          width: 80,
-          height: 35,
-          decoration: BoxDecoration(
-            color: Color(0xfe00A550),
-            border: Border.all(
-              color: Color(0xfe00A550),
-            ),
-            borderRadius: BorderRadius.circular(15),
-          ),
-        ),
-        Spacer(),
-        Container(
-          width: 80,
-          height: 35,
-          decoration: BoxDecoration(
-            color: Color(0xfe00A550),
-            border: Border.all(
-              color: Color(0xfe00A550),
-            ),
-            borderRadius: BorderRadius.circular(15),
-          ),
-        )
-      ],
-    );
-  }
-
   Widget _buildSectionTitle(String title, String actionText) {
     return Row(
       children: [
         Text(
           title,
-          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
         ),
-        Spacer(),
+        const Spacer(),
         Text(
           actionText,
-          style: TextStyle(
-              color: const Color.fromARGB(255, 0, 0, 0),
+          style: const TextStyle(
+              color: Color.fromARGB(255, 0, 0, 0),
               fontSize: 12,
               fontWeight: FontWeight.bold),
         ),
@@ -376,141 +321,11 @@ class HomeScreenBody extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         itemCount: recommendations.length,
         itemBuilder: (context, index) {
-          return _buildRecommendationCard(recommendations[index]);
+          return RecomendationCard(recommendation: recommendations[index]);
         },
       ),
     );
   }
-
-   Widget _buildRecommendationCard(Map<String, String> recommendation) {
-    // Variabel untuk menyimpan status favorit
-    bool isFavorite = false;
-
-    return GestureDetector(
-      onTap: () {
-        // Ubah status favorit saat diklik
-        isFavorite = !isFavorite;
-        // Panggil setState agar UI diperbarui
-        // Jika menggunakan StatefulWidget, kamu bisa panggil setState di sini
-      },
-      child: Container(
-        margin: EdgeInsets.only(right: 16),
-        width: 207,
-        height: 249,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15),
-          color: Colors.grey[200],
-        ),
-        child: Stack(
-          children: [
-            // Gambar utama
-            ClipRRect(
-              borderRadius: BorderRadius.circular(12),
-              child: Image.asset(
-                recommendation["image"]!,
-                width: 210,
-                height: 249,
-                fit: BoxFit.cover,
-              ),
-            ),
-
-            // Overlay untuk teks di bagian bawah
-            Positioned(
-              bottom: 0,
-              left: 0,
-              right: 0,
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.black.withOpacity(0.5),
-                  borderRadius: BorderRadius.vertical(bottom: Radius.circular(12)),
-                ),
-                padding: EdgeInsets.all(8),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    // Judul
-                    Text(
-                      recommendation["title"]!,
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
-                    ),
-                    SizedBox(height: 4),
-
-                    // Lokasi
-                    Row(
-                      children: [
-                        Image.asset('assets/img/Map Pin.png', width: 12, height: 12),
-                        SizedBox(width: 4),
-                        Text(
-                          recommendation["location"]!,
-                          style: TextStyle(color: Colors.white, fontSize: 12),
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: 4),
-
-                    // Rating
-                    Row(
-                      children: [
-                        SvgPicture.asset('assets/img/star.svg', width: 12, height: 12),
-                        SizedBox(width: 4),
-                        Text(
-                          recommendation['rating']!,
-                          style: TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-            ),
-
-            // Lingkaran dengan ikon favorit di atas gambar
-            Positioned(
-              top: 10,
-              right: 10,
-              child: Stack(
-                alignment: Alignment.center,
-                children: [
-                  // Lingkaran
-                  Container(
-                    width: 30,
-                    height: 30,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      shape: BoxShape.circle,
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.5),
-                          blurRadius: 4,
-                          offset: Offset(0, 4),
-                        ),
-                      ],
-                    ),
-                  ),
-                  // Ikon favorit
-                  SvgPicture.asset(
-                    'assets/img/favorite.svg',
-                    width: 24,
-                    height: 24,
-                    color: isFavorite ? Colors.red : Colors.black, // Mengubah warna berdasarkan status favorit
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
 
   Widget _buildPopularActivities() {
     final popularActivities = [
@@ -540,92 +355,18 @@ class HomeScreenBody extends StatelessWidget {
 
     return ListView.builder(
       shrinkWrap: true,
-      physics: NeverScrollableScrollPhysics(),
+      physics: const NeverScrollableScrollPhysics(),
       itemCount: popularActivities.length,
       itemBuilder: (context, index) {
-        return _buildPopularActivityCard(popularActivities[index]);
+        return PopularCard(activity: popularActivities[index]);
       },
-    );
-  }
-
-  Widget _buildPopularActivityCard(Map<String, String> activity) {
-    return Container(
-      width: 355,
-      height: 160,
-      margin: EdgeInsets.only(bottom: 16),
-      padding: EdgeInsets.all(12),
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(12),
-          color: Colors.white,
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.4),
-              spreadRadius: 0,
-              blurRadius: 4,
-              offset: Offset(0, 4),
-            ),
-          ]),
-      child: Row(
-        children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(12),
-            child: Image.asset(
-              activity["image"]!,
-              fit: BoxFit.cover,
-              width: 111,
-              height: 135, // Sesuaikan ukuran sesuai kebutuhan
-            ),
-          ),
-          SizedBox(width: 16),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start, // Mulai dari kiri
-              children: [
-                Row(
-                  children: [
-                    Text(
-                      activity["title"]!,
-                      style:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                    ),
-                    Spacer(),
-                    SvgPicture.asset(
-                      'assets/img/favorite.svg',
-                      width: 24,
-                      height: 24,
-                    ),
-                  ],
-                ),
-                SizedBox(height: 4),
-                Row(
-                  children: [
-                    SvgPicture.asset('assets/img/star.svg'),
-                    Text(
-                      activity['rating']!,
-                      style:
-                          TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
-                    ),
-                  ],
-                ),
-                Text(
-                  activity["price"]!,
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                ),
-                SizedBox(height: 4),
-                Text(
-                  "A resort is a place used for vacation, relaxation, or as a day....",
-                  style: TextStyle(color: Colors.grey),
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
     );
   }
 }
 
 class Order extends StatelessWidget {
+  const Order({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

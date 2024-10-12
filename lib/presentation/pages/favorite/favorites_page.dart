@@ -87,10 +87,10 @@ class FavoriteScreen extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  Row(
+                  const Row(
                     children: [
-                      const Icon(Icons.star, color: Colors.amber, size: 16),
-                      const Text(' 4.9'),
+                      Icon(Icons.star, color: Colors.amber, size: 16),
+                      Text(' 4.9'),
                     ],
                   ),
                   const Text(

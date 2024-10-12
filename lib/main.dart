@@ -8,6 +8,8 @@ void main() {
 }
 
 class AyoKesitu extends StatelessWidget {
+  const AyoKesitu({super.key});
+  
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
